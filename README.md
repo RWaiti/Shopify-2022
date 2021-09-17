@@ -10,6 +10,8 @@
 
  We can see is that the AOV was calculated using the total amount of sales, not the total amount of sold shoes.
 
+</br>
+
 ### b) What metric would you report for this dataset?
 
 - Which stores sold the most shoes
@@ -19,23 +21,35 @@
 - Most used payment methods
 
 - Weekday with the biggest sales
+  
+  </br>
 
 ### c) What is its value?
 
 AOV = $357.92
 
+</br></br>
   
 ## Question 2: For this question you’ll need to use SQL. Follow this link to access the data set required for the challenge. Please use queries to answer the following questions. Paste your queries along with your final numerical answers below.
 
 ## CODE + ANSWER [LINK](https://github.com/RWaiti/Shopify-2022/blob/main/question2.sql)
 
 ### a) How many orders were shipped by Speedy Express in total?
-```
+
+```sql
 SELECT count(*) FROM Orders
 WHERE ShipperID = 1
 ```
+
+|---|
+|count(*)|
+|54|
+
+</br>
+
 ### b) What is the last name of the employee with the most orders?
-```
+
+```sql
 SELECT LastName FROM Employees
 INNER JOIN Orders ON Employees.EmployeeID = Orders.EmployeeID
 GROUP BY LastName
@@ -43,9 +57,16 @@ ORDER BY count(*) DESC
     LIMIT 1;
 ```
 
+|---|
+|LastName|
+|Peacock|
+
+</br>
+
 ### c) What product was ordered the most by customers in Germany?
-```
-SELECT * FROM Products
+
+```sql
+SELECT ProductName FROM Products
 WHERE ProductID IN (SELECT OrderDetails.ProductID FROM Customers
                     INNER JOIN Orders ON Customers.CustomerID = Orders.CustomerID
                     INNER JOIN OrderDetails ON Orders.OrderID = OrderDetails.OrderID
@@ -54,3 +75,7 @@ WHERE ProductID IN (SELECT OrderDetails.ProductID FROM Customers
                     ORDER BY sum(OrderDetails.Quantity) DESC
                         LIMIT 1);
 ```
+
+|---|
+|ProductName|
+|Boston Crab Meat|
