@@ -47,10 +47,10 @@ ORDER BY count(*) DESC
 ```
 SELECT * FROM Products
 WHERE ProductID IN (SELECT OrderDetails.ProductID FROM Customers
-					INNER JOIN Orders ON Customers.CustomerID = Orders.CustomerID
-					INNER JOIN OrderDetails ON Orders.OrderID = OrderDetails.OrderID
-					WHERE Country = "Germany"
-					GROUP BY OrderDetails.ProductID
+                    INNER JOIN Orders ON Customers.CustomerID = Orders.CustomerID
+                    INNER JOIN OrderDetails ON Orders.OrderID = OrderDetails.OrderID
+                    WHERE Country = "Germany"
+                    GROUP BY OrderDetails.ProductID
                     ORDER BY sum(OrderDetails.Quantity) DESC
-						LIMIT 1);
+                        LIMIT 1);
 ```
