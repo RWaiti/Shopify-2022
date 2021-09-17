@@ -41,9 +41,9 @@ SELECT count(*) FROM Orders
 WHERE ShipperID = 1
 ```
 
-|---|
 |count(*)|
-|54|
+|:------:|
+|   54   |
 
 </br>
 
@@ -57,9 +57,9 @@ ORDER BY count(*) DESC
     LIMIT 1;
 ```
 
-|---|
 |LastName|
-|Peacock|
+|:------:|
+|Peacock |
 
 </br>
 
@@ -76,6 +76,6 @@ WHERE ProductID IN (SELECT OrderDetails.ProductID FROM Customers
                         LIMIT 1);
 ```
 
-|---|
-|ProductName|
+|  ProductName   |
+|:--------------:|
 |Boston Crab Meat|
